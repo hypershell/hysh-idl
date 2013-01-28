@@ -1,0 +1,18 @@
+
+namespace hysh
+
+alias uint64 eid
+
+interface error
+  id      [77 39 24 e1 b9 0e 4e c2]
+  type    native
+  readers
+    uint32 error_code
+    eid error_id
+    (const char *) error_message
+
+interface error_callback
+  id      [d6 cf 33 31 c7 4f ce 0b]
+  methods
+    on_error
+      <- error err

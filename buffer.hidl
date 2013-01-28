@@ -1,0 +1,8 @@
+
+namespace hysh
+
+interface buffer
+  id        [a5 66 e8 b6 75 50 b7 f5]
+  readers
+    uint64 size
+    (const char *) buffer

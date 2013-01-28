@@ -1,0 +1,49 @@
+
+import
+  data_buffer.hidl
+
+namespace hysh
+
+interface read_stream
+  id      [f2 f1 b1 9d 1c f6 08 b1]
+  parent  object
+  methods
+    read
+      <- read_stream_callback callback
+    close_read
+      <- error err
+
+interface read_stream_callback
+  id      [bd 12 e5 f1 c7 5b f0 83]
+  parent  error_callback
+  methods
+    on_data_available
+      <- data_buffer buffer
+    on_read_end
+      <- error err
+
+interface write_stream
+  id      [b1 a2 16 5d 72 a1 fa 4b]
+  parent  object
+  methods
+    write
+      <- data_buffer buffer
+    prepare_write
+      <- write_stream_callback callback
+    close_write
+      <- error err
+
+interface write_stream_callback
+  id      [be 2e a4 dd 1f ca 23 3b]
+  parent  error_callback
+  methods
+    on_ready_write
+    on_write_end
+      <- error err
+
+service create_stream_channel
+  id      [b0 33 51 7d d4 5e b7 63]
+  arguments
+    -> read_stream read
+    -> write_stream write
+

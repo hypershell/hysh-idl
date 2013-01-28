@@ -1,0 +1,40 @@
+
+import
+  stream.hidl
+
+namespace hysh
+
+interface http_handler
+  id      [00 2e 1f 33 b7 53 d2 19]
+  methods
+    handle_http_request
+      <- http_request_line request_line
+      <- table request_headers
+      <- read_stream request_body
+      <- http_response_callback
+
+interface http_request_line
+  id      [15 f7 27 d8 f4 2f 56 ba]
+  readers
+    uint32  http_major_version
+    uint32  http_minor_version
+    string  request_method
+    string  request_path
+    string  query_string
+
+interface http_response_line
+  id      [7a 0e 36 37 2c 26 49 c5]
+  readers
+    uint32  http_major_version
+    uint32  http_minor_version
+    uint32  status_code
+    string  status_message
+
+callback http_response_callback
+  id        [f1 76 bb 63 f9 f1 5a 1c]
+  protector [ed d5 dc 09 a5 13 65 24]
+  methods
+    on_http_response_available
+      <- http_response_line response_line
+      <- table response_headers
+      <- read_stream response_body

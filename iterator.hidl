@@ -1,0 +1,12 @@
+
+interface object_iterator
+  iid       [f9 51 d0 24 55 f3 f7 c0]
+  methods
+    next 
+      error iterator_out_of_bound
+    object_value
+      -> object value
+
+error iterator_out_of_bound
+  eid     [d6 18 08 a1 37 64 4e bd]
+  level   common

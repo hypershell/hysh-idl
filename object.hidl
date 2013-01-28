@@ -1,0 +1,17 @@
+
+namespace hysh
+
+alias uint64 iid
+
+interface object
+  id        [43 38 75 d1 2c 88 54 0d]
+  parent    none
+  type      native
+  readers
+    (const char *) info_string
+  methods
+    add_ref
+    de_ref
+    convert_object
+      <- iid object_iid
+      -> object converted_object

@@ -1,0 +1,14 @@
+
+namespace hysh
+
+interface object_list
+  iid         [e0 cb ab 0e 7c c8 4a 9c]
+  readers
+    uint64 size
+    iid item_type
+    object_iterator object_iterator
+  methods
+    get_object
+      <- uint64 index
+      -> object item
+

@@ -1,0 +1,21 @@
+
+import
+  hysh/stream.hidl
+
+namespace hysh
+
+interface stream_handler
+  id      [56 f1 77 8f ca 52 f1 5f]
+  parent  object
+  methods
+    handle_stream
+      <- table args
+      <- read_stream input_stream
+      <- result_stream_callback callback
+
+callback result_stream_callback
+  id        [f1 b7 51 c3 e4 79 93 cf]
+  protector [68 e2 28 7d 5a 27 49 6b]
+  methods
+    on_result_stream_available
+      <- read_stream result_stream

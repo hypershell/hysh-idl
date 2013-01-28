@@ -1,0 +1,17 @@
+
+namespace hysh
+
+interface object_table
+  id      [95 c4 70 38 59 a6 68 28]
+  parent  object
+  methods
+    get_object_value
+      <- string key
+      -> object value
+      error key_not_found
+    get_all_keys
+      -> list keys
+
+error key_not_found
+  id      [dc 29 81 66 77 83 d5 04]
+  level   common

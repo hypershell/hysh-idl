@@ -1,0 +1,30 @@
+
+import
+  list.hidl
+  iterator.hidl
+  table.hidl
+
+interface string_iterator
+  id        [9a b3 ac b6 ff e0 8f c3]
+  parent    object_iterator
+  methods   
+    string_value
+      -> string value
+
+interface string_list
+  id        [fe 9c a8 f3 e2 d7 23 b7]
+  parent    object_list
+  readers
+    string_iterator string_iterator
+  methods
+    get_string
+      <- uint64 index
+      -> string value
+
+interface string_table
+  id        [d7 49 4e a9 0a cd e1 b4]
+  parent  object_table
+  methods
+    get_string_value
+      <- string key
+      -> string value

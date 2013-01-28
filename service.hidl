@@ -1,0 +1,9 @@
+
+namespace hysh
+
+interface service_factory
+  id      [56 60 37 bd d8 e8 6f 0e]
+  readers
+    string  service_id
+  methods
+    

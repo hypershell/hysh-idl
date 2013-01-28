@@ -1,0 +1,12 @@
+
+import
+  buffer.hidl
+
+namespace hysh
+
+interface string
+  id        [12 63 aa 9d fb 31 df 1e]
+  parent    buffer
+  readers
+    uint64 length
+    (const char *) c_string
